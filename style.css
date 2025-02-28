@@ -143,15 +143,15 @@ header {
   font-size: 20px;
 }
 
-.descricao {
-  width: 60%;
-  padding: 100px 80px;
+.foto img {
+  width: 300px;
   border-radius: 14px;
   border: solid #194fa5 3.5px;
 }
 
-.foto img {
-  width: 300px;
+.descricao {
+  width: 60%;
+  padding: 100px 80px;
   border-radius: 14px;
   border: solid #194fa5 3.5px;
 }
@@ -174,36 +174,48 @@ header {
   margin: 10px 0;
   align-items: center;
   justify-content: center;
-}
-
-.certificados {
-  padding: 25px 60px;
-}
-
-.certificados-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
-}
-
-.certificado-item {
-  background-color: white;
-  padding: 15px;
-  border-radius: 14px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.certificado-item:hover {
+/* Alterado para usar Grid */
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+  grid-template-rows: repeat(2, 1fr); /* Duas linhas */
+  gap: 30px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.certificados-grid {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.projetos-grid .projeto-item {
+  max-width: 500px;
+  margin: 0 auto; /* Alinha ao centro */
+}
+
+.certificado-item:hover,
+.projeto-item:hover {
   transform: scale(1.05);
 }
 
-.certificado-item img {
+.certificado-item img,
+.projeto-item img {
   width: 100%;
+  height: auto;
   border-radius: 14px;
   border: solid #194fa5 3.5px;
+}
+
+.projeto-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
 }
 
 /* Estilo do Popup */
@@ -243,23 +255,53 @@ header {
   cursor: pointer;
 }
 
+/* Estilo do botão */
 .btn-projeto {
-  display: none; /* O botão será visível apenas dentro do pop-up */
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
+  display: inline-block; /* Faz o botão se comportar como um elemento de bloco, mas na mesma linha */
+  background-color: #007bff; /* Cor de fundo azul */
+  color: white; /* Cor do texto */
+  font-size: 16px; /* Tamanho da fonte */
+  padding: 12px 20px; /* Espaçamento interno do botão */
+  border-radius: 5px; /* Bordas arredondadas */
+  text-align: center; /* Alinha o texto ao centro */
+  text-decoration: none; /* Remove o sublinhado do link */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave */
 }
 
+/* Efeito de hover (quando o mouse passa por cima) */
 .btn-projeto:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Cor de fundo mais escura quando passar o mouse */
+  transform: translateY(-2px); /* Efeito de levantar o botão */
 }
 
-.popup.active .btn-projeto {
-  display: block; /* Torna o botão visível quando o pop-up tiver a classe 'active' */
+/* Efeito de foco (quando o botão é clicado ou focado) */
+.btn-projeto:focus {
+  outline: none; /* Remove a borda de foco padrão */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Adiciona um contorno azul claro */
+}
+
+/* Efeito de clique (quando o botão é pressionado) */
+.btn-projeto:active {
+  transform: translateY(2px); /* O botão parece ser pressionado para baixo */
+}
+
+.contato{
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 60px;
+  font-size: 20px;
+}
+
+.redes-item{
+  padding: 15px;
+  margin: 10px 0;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.redes-sociais{
+  display: flex;
+  align-items: center;
 }
